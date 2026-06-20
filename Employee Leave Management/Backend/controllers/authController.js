@@ -2,11 +2,6 @@ import Employee from "../models/Employee.js"
 import bcrypt from "bcrypt"
 
 
-
-
- 
-
-
 export const login = async (req, res) => {
 
   try {
