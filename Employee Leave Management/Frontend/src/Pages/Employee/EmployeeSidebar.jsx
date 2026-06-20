@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   CalendarCheck, 
@@ -10,12 +10,26 @@ import {
   LogOut 
 } from 'lucide-react'; // Using lucide-react for icons as seen in your UI
 
+
 const EmployeeSidebar = () => {
   const menuItems = [
     { name: 'Dashboard', path: '/employee', icon: <LayoutDashboard size={20} /> },
     { name: 'Leave', path: '/employee/my-leave', icon: <FileText size={20} /> },
     { name: 'Apply Leave', path: '/employee/apply-leave', icon: <FileText size={20} /> },
   ];
+
+  const navigate = useNavigate()
+
+   const handleLogout = () => {
+
+    // Remove logged in user
+
+    localStorage.removeItem("user")
+
+    // Redirect to login page
+
+    navigate("/")
+  }
 
   return (
     <div className="fixed left-0 top-0 h-screen w-64 bg-[#0a0f1e] text-white flex flex-col border-r border-gray-800">
@@ -62,7 +76,8 @@ const EmployeeSidebar = () => {
 
       {/* Logout Button */}
       <div className="p-4 border-t border-gray-800">
-        <button className="flex items-center gap-3 px-4 py-3 w-full text-gray-400 hover:text-red-400 transition-colors">
+        <button onClick={handleLogout}
+        className="flex items-center gap-3 px-4 py-3 w-full text-gray-400 hover:text-red-400 transition-colors">
           <LogOut size={20} />
           <span className="text-sm font-medium">Log out</span>
         </button>
