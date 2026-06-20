@@ -48,7 +48,7 @@ const AddEmployee = () => {
     );
 
     const response = await axios.post(
-      "http://localhost:4000/api/employees/add", employeeData
+      "https://employee-leave-management-1-4xmq.onrender.com/api/employees/add", employeeData
     );
 
     if (response.data.success) {

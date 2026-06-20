@@ -12,7 +12,7 @@ const MyLeaves = () => {
     try {
 
       const response = await axios.get(
-        `http://localhost:4000/api/leave/employee/${user._id}`
+        `https://employee-leave-management-1-4xmq.onrender.com/api/leave/employee/${user._id}`
       )
 
       setLeaves(response.data)

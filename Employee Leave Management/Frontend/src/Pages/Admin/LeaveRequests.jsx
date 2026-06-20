@@ -12,7 +12,7 @@ const LeaveRequests = () => {
     try {
 
       const response = await axios.get(
-        "http://localhost:4000/api/leave/all"
+        "https://employee-leave-management-1-4xmq.onrender.com/api/leave/all"
       )
 
       setLeaves(response.data)
@@ -36,7 +36,7 @@ const LeaveRequests = () => {
     try {
 
       await axios.put(
-        `http://localhost:4000/api/leave/status/${id}`,
+        `https://employee-leave-management-1-4xmq.onrender.com/api/leave/status/${id}`,
         { status }
       )
 

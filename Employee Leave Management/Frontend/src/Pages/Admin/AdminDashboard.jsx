@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     try {
 
       const response = await axios.get(
-        "http://localhost:4000/api/employees/getemp"
+        "https://employee-leave-management-1-4xmq.onrender.com/api/employees/getemp"
       )
 
       setEmployees(response.data)
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
     try {
 
       const response = await axios.get(
-        "http://localhost:4000/api/leave/all"
+        "https://employee-leave-management-1-4xmq.onrender.com/api/leave/all"
       )
 
       setLeaves(response.data)

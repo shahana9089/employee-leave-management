@@ -26,7 +26,7 @@ function Login() {
     try {
 
       const response = await axios.post(
-        "http://localhost:4000/api/auth/login",
+        "https://employee-leave-management-1-4xmq.onrender.com/api/auth/login",
         formData
       )
 

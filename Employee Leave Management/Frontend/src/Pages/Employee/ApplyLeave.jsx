@@ -28,7 +28,7 @@ const ApplyLeave = () => {
     try {
 
       await axios.post(
-        "http://localhost:4000/api/leave/add",
+        "https://employee-leave-management-1-4xmq.onrender.com/api/leave/add",
         formData
       )
 
