@@ -9,7 +9,7 @@ const Employees = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get("https://employee-leave-management-1-4xmq.onrender.com/api/employees/getemp");
+      const response = await axios.get("https://employee-leave-management-6clu.onrender.com/api/employees/getemp");
 
       setEmployees(response.data);
     } catch (error) {
@@ -23,7 +23,7 @@ const Employees = () => {
 
   const deleteEmployee = async (id) => {
     try {
-      await axios.delete(`https://employee-leave-management-1-4xmq.onrender.com/api/employees/delete/${id}`);
+      await axios.delete(`https://employee-leave-management-6clu.onrender.com/api/employees/delete/${id}`);
 
       fetchEmployees();
     } catch (error) {
