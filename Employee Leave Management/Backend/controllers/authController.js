@@ -4,24 +4,25 @@ import bcrypt from "bcrypt"
 
 
 
- export const registerUser = async () => {
+ 
+export const registerUser = async (req, res) => {
   try {
-    
+    const { email, password } = req.body;
 
-    const adminExists = await Employee.findOne({
-      email: "admin@gmail.com",
-    });
+    const adminExists = await Employee.findOne({ email });
 
     if (adminExists) {
-      console.log("Admin already exists");
-      process.exit(0);
+      return res.status(400).json({
+        success: false,
+        message: "User already exists",
+      });
     }
 
-    const hashedPassword = await bcrypt.hash("admin123", 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    await Employee.create({
+    const admin = await Employee.create({
       name: "Admin",
-      email: "admin@gmail.com",
+      email,
       password: hashedPassword,
       phone: "9999999999",
       department: "IT",
@@ -30,14 +31,20 @@ import bcrypt from "bcrypt"
       role: "admin",
     });
 
-    console.log("Admin seeded successfully");
-    process.exit(0);
+    return res.status(201).json({
+      success: true,
+      message: "Admin created successfully",
+      admin,
+    });
   } catch (error) {
-    console.error("Seed Error:", error.message);
-    process.exit(1);
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
   }
 };
-
 
 export const login = async (req, res) => {
 
