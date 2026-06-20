@@ -26,7 +26,7 @@ app.use(
     credentials: true,
   }),
 );
-console.log("dgfdfg");
+
 
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
