@@ -27,6 +27,8 @@ app.use(
   }),
 );
 
+console.log("dsdf");
+
 
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
